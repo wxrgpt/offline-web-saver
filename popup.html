@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>wxrweb - 网页资源下载器</title>
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    /* 内联基本样式，确保UI正常显示 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      width: 320px;
+    }
+
+    .container {
+      padding: 15px;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-top: 0;
+      color: #333;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .option-group {
+      margin-bottom: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    .buttons {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .primary-btn {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .primary-btn:hover {
+      background-color: #3367d6;
+    }
+
+    .progress-bar-container {
+      height: 10px;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      margin: 10px 0;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background-color: #4285f4;
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .progress-label {
+      font-size: 13px;
+      color: #555;
+    }
+
+    #progress-text {
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+    }
+
+    #status-message {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .success {
+      color: #0f9d58;
+    }
+
+    .error {
+      color: #ea4335;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>wxrweb 网页资源下载器</h1>
+
+    <div class="option-group">
+      <label><input type="checkbox" id="css-checkbox" checked> 下载CSS文件</label>
+      <label><input type="checkbox" id="js-checkbox" checked> 下载JavaScript文件</label>
+      <label><input type="checkbox" id="images-checkbox" checked> 下载图片</label>
+      <label><input type="checkbox" id="fonts-checkbox" checked> 下载字体</label>
+    </div>
+
+    <div class="buttons">
+      <button id="download-btn" class="primary-btn">下载当前页面</button>
+    </div>
+
+    <div id="progress-container" class="hidden">
+      <div class="progress-label">正在下载资源...</div>
+      <div class="progress-bar-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <div id="progress-text">0%</div>
+    </div>
+
+    <div id="status-message"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
